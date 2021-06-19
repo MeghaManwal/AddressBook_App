@@ -52,6 +52,7 @@ body {
     justify-content: center;
     align-items: center;
     border: 0px solid rgb(0, 174, 255);
+    padding:20px;
 }
 
 .form {
@@ -76,17 +77,53 @@ body {
     padding: 15px 0px;
 }
 
-.cancel-button{
-    font: normal normal normal 22px/29px Roboto;
-    letter-spacing: 0px;
-    color: #ffffff;
+.row-content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom:  20px;
+    margin-top: 20px;
+    border: 0px sold green;
+}
+
+.label {
+    min-width: 0px;
+}
+
+.text {
+    font-size: 16px;
+    color: #42515f;
     opacity: 1;
-    background: rgb(0, 174, 255) 0% 0% no-repeat padding-box;
-    border: none;
-    border-radius: 5px;
-    padding: 5px 18px;
-    outline: none;
-    cursor: pointer;
-    text-align: center;
-    text-decoration: none;
+    font-family: Roboto;    
+}
+
+.input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc ;
+    border-radius: 4px;
+    resize: vertical;
+}
+
+select{
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+    font: normal normal normal 16px Roboto;
+    color: #42515f;
+    background-color: transparent;
+    display:inline-block;
+    box-sizing:border-box;
+    opacity: 1;
+    padding-right: 167px;
+}
+
+.input-code {
+    width:30%;
+    padding: 21px;
+    border: 1px solid #ccc ;
+    border-radius: 4px;
+    resize: vertical;
+    padding-right:167px;
 }
