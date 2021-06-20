@@ -117,7 +117,7 @@ select{
     display:inline-block;
     box-sizing:border-box;
     opacity: 1;
-    padding-right: 160px;
+    padding-right: 162px;
 }
 
 .input-code {
@@ -126,7 +126,7 @@ select{
     border: 1px solid #ccc ;
     border-radius: 4px;
     resize: vertical;
-    padding-right:160px;
+    padding-right:162px;
 }
 
 error-output {
@@ -203,9 +203,6 @@ error-output {
         width: 85%;
         padding: 44px 20px;
     }    
-    .profile-label{
-        margin-right: 0px;
-    }
 }
 
 a.button:hover{

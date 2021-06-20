@@ -57,3 +57,59 @@ function validatePhoneNumber() {
         }
     });
 }
+
+const save = () => {
+    try {
+        let addressBookData = createAddressBook();
+        createAndUpdateStorage(addressBookData);
+    } catch (e) {
+        console.log(e);
+        return;
+    }
+}
+
+const createAddressBook = () => {
+    let addressBookData = new AddressBookData();
+
+    try {
+        addressBookData.name = getInputValueId('#name');
+    } catch (e) {
+        console.log(e)
+        setTextValue('.text-error', e);
+        throw e;
+    }
+    addressBookData.address = getInputValueId('#address');
+    addressBookData.city    = getInputValueId('#city');
+    addressBookData.state   = getInputValueId('#state');
+    addressBookData.zipcode = getInputValueId('#zipcode');
+    addressBookData.phonenumber = getInputValueId('#number');
+    console.log(addressBookData);
+
+    return addressBookData;
+}
+
+const getInputValueId = (id) => {
+    let value = document.querySelector(id).value;
+    return value;
+}
+
+
+const setTextValue = (id, message) => {
+    const textError = document.querySelector(id);
+    textError.textContent = message;
+}
+
+const createAndUpdateStorage = (data) => {
+    let dataList = JSON.parse(localStorage.getItem("AddressBookList"));
+
+    if(dataList != undefined) {
+        dataList.push(data);
+    }
+    else {
+        dataList = [data];
+    }
+    console.log(dataList);
+
+    localStorage.setItem("AddressBookList", JSON.stringify(dataList));
+    alert("data stored with name: "+data.name);
+}
