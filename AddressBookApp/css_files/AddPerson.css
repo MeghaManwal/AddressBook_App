@@ -84,6 +84,7 @@ body {
     margin-bottom:  20px;
     margin-top: 20px;
     border: 0px sold green;
+    padding-bottom: 10px;
 }
 
 .label {
@@ -127,3 +128,10 @@ select{
     resize: vertical;
     padding-right:167px;
 }
+
+error-output {
+    background-color: red;
+    font-size: 15px;
+    font: italic;
+    font-family: sans-serif;
+}    

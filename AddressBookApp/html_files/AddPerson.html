@@ -33,7 +33,7 @@
                 <label for="address" class="label text"></label>
                 <input type="text" class="input" id="address" name="address" placeholder="Address.." required
                     style="height: 100px;">
-                <error-output for="text" class="text-error"></error-output>
+                <error-output for="text" class="address-error"></error-output>
             </div>
             <div class="row-content">
                 <label for="address" class="label text"></label>
@@ -73,10 +73,46 @@
                 </div>
             </div>
             <div class="row-content">
-                <label for="phonenumber" class="label text"></label>
-                <input type="text" class="input" id="phonenumber" name="address" placeholder="Phone Number.." required>
-                <error-output for="text" class="text-error"></error-output>
+                <label for="number" class="label text"></label>
+                <input type="text" class="input" id="number" name="number" placeholder="Phone Number..">
+                <error-output for="number" class="number-error"></error-output>
             </div>
+            <script>
+                const name = document.querySelector('#name');
+                const texterror = document.querySelector('.text-error');
+                name.addEventListener('input', function () {
+                    let pattern = RegExp('^[A-Z]{1}[a-z]{2,}$');
+                    if (pattern.test(name.value))
+                        texterror.textContent = ' ';
+                    else
+                        texterror.textContent = 'Name is Incorrect!';
+                });
+                console.log(name);
+            </script>
+            <script>
+                const address = document.querySelector('#address');
+                const texterrors = document.querySelector('.address-error');
+                address.addEventListener('input', function () {
+                    let pattern = RegExp('^[a-zA-Z\s]+(\.)? [a-z A-Z]{3,}$');
+                    if (pattern.test(address.value))
+                        texterrors.textContent = ' ';
+                    else
+                        texterrors.textContent = 'Address is Incorrect!';
+                });
+                console.log(address);
+            </script>
+            <script>
+                const number = document.querySelector('#number');
+                const numbererror = document.querySelector('.number-error');
+                number.addEventListener('input', function () {
+                    let numberpattern = RegExp('^[+][0-9]{2,}[1-9]{1}[0-9]{9}$');
+                    if (numberpattern.test(number.value))
+                        numbererror.textContent = ' ';
+                    else
+                        numbererror.textContent = 'Number is Incorrect!';
+                });
+                console.log(number);
+            </script>
         </form>
     </div>
 </body>
