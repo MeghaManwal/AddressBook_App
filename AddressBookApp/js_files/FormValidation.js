@@ -113,3 +113,20 @@ const createAndUpdateStorage = (data) => {
     localStorage.setItem("AddressBookList", JSON.stringify(dataList));
     alert("data stored with name: "+data.name);
 }
+
+const resetForm = () => {
+    setValue('#name', '');
+    setValue('#address', ' ');
+    setTextValue(".text-error", ' ');
+    setTextValue(".address-error", ' ');
+    setTextValue(".number-error", ' ');
+    setValue('#city', ' ');
+    setValue('#state', ' ');
+    setValue('#zipcode', ' ');
+    setValue('#number', ' ');
+}
+
+const setValue = (id, value) => {
+    const element = document.querySelector(id);
+    element.value = value;
+}
