@@ -7,9 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css_files/AddPerson.css">
     <script type="text/javascript" src="../js_files/AddressBook.js"></script>
+    <script type="text/javascript" src="../js_files/FormValidation.js"></script>
     <title>Address Book</title>
 </head>
-
 <body>
     <header class="header-content header">
         <div class="logo-content">
@@ -78,30 +78,6 @@
                 <input type="text" class="input" id="number" name="number" placeholder="Phone Number..">
                 <error-output for="number" class="number-error"></error-output>
             </div>
-            <script>
-                const name = document.querySelector('#name');
-                const texterror = document.querySelector('.text-error');
-                name.addEventListener('input', function () {
-                    let pattern = RegExp('^[A-Z]{1}[a-z]{2,}$');
-                    if (pattern.test(name.value))
-                        texterror.textContent = ' ';
-                    else
-                        texterror.textContent = 'Name is Incorrect!';
-                });
-                console.log(name);
-            </script>
-            <script>
-                const address = document.querySelector('#address');
-                const texterrors = document.querySelector('.address-error');
-                address.addEventListener('input', function () {
-                    let pattern = RegExp('^[a-zA-Z\s]+(\.)? [a-z A-Z]{3,}$');
-                    if (pattern.test(address.value))
-                        texterrors.textContent = ' ';
-                    else
-                        texterrors.textContent = 'Address is Incorrect!';
-                });
-                console.log(address);
-            </script>
             <script>
                 const number = document.querySelector('#number');
                 const numbererror = document.querySelector('.number-error');
