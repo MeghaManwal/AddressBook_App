@@ -5,6 +5,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
     addressBookList = getDataFromLocalStorage();
     document.querySelector('.per-count').textContent = addressBookList.length;
     createInnerHtml();
+    localStorage.removeItem("edit-person");
 });
 
 const createInnerHtml = () => {
@@ -21,8 +22,8 @@ const createInnerHtml = () => {
         <td>${addressData._zipcode}</td>
         <td>${addressData._phonenumber}</td>
         <td>
-            <img name="${addressData._id}" src="../assets/icon/delete-black-18dp.svg" alt="Delete" onclick="remove(this)">
-            <img name="${addressData._id}" src="../assets/icon/create-black-18dp.svg" alt="Edit" onclick="update(this)">
+            <img id="${addressData._id}" src="../assets/icon/delete-black-18dp.svg" alt="Delete" onclick="remove(this)">
+            <img id="${addressData._id}" src="../assets/icon/create-black-18dp.svg" alt="Edit" onclick="update(this)">
         </td>
     </tr>`;
     document.querySelector('#display').innerHTML=innerHtml;
@@ -32,4 +33,26 @@ const createInnerHtml = () => {
 const getDataFromLocalStorage= () => {
     return localStorage.getItem('AddressBookList')? 
            JSON.parse(localStorage.getItem('AddressBookList')) : [];
+}
+
+const remove = (data) => {
+
+    let addBookData = addressBookList.find(personData => personData._id == data._id);
+    if (!addBookData) {
+        return;
+    }
+    const index = addressBookList.map(personData => personData._id).indexOf(addBookData._id);
+    addressBookList.splice(index, 1);
+    localStorage.setItem('AddressBookList', JSON.stringify(addressBookList));
+    document.querySelector('.per-count').textContent = addressBookList.length;
+    createInnerHtml();
+}
+
+const update = (data) => {
+    let addBookData = addressBookListt.find(personData => personData._id == data._id);
+    if (!addBookData) {
+        return;
+    }
+    localStorage.setItem('edit-emp', JSON.stringify(addBookData));
+    window.location.replace(site_properties.add_employee_page);
 }
