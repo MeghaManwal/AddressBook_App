@@ -64,10 +64,23 @@ const remove = (data) => {
         return;
     }
     const index = addressBookList.map(personData => personData.id).indexOf(addBookData.id);
+    if(site_properties.use_local_storage.match("true")){
     addressBookList.splice(index, 1);
     localStorage.setItem('AddressBookList', JSON.stringify(addressBookList));
     document.querySelector('.per-count').textContent = addressBookList.length;
     createInnerHtml();
+    }else {
+        const deleteUrl=site_properties.server_url+addBookData.id.toString();
+        makeServiceCall("DELETE",deleteUrl,true)
+            .then(response=>{
+                console.log(response)
+                document.querySelector(".per-count").textContent=addressBookList.length;
+                createInnerHtml();
+            })
+            .catch(error=>{
+                alert("Error while deleting "+error)
+            })
+    }
 }
 
 const update = (data) => {
